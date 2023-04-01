@@ -12,14 +12,15 @@ namespace AbbyWeb.Pages.Categories
         {
             _db = db;
         }
+        [BindProperty]
         public Category Category { get; set; }
         public void OnGet()
         {
         }
 
-        public async Task<IActionResult> OnPost(Category category)
+        public async Task<IActionResult> OnPost()
         {
-            await _db.Categories.AddAsync(category);
+            await _db.Categories.AddAsync(Category);
             await _db.SaveChangesAsync();
             return RedirectToPage("index");
         }
