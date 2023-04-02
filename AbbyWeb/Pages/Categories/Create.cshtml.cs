@@ -20,6 +20,10 @@ namespace AbbyWeb.Pages.Categories
 
         public async Task<IActionResult> OnPost()
         {
+            if (Category.Name == Category.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("Category.Name", "Name and display order should be not the same.");
+            }
             if (ModelState.IsValid)
             {
                 await _db.Categories.AddAsync(Category);
