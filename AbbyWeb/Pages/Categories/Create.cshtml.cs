@@ -20,9 +20,13 @@ namespace AbbyWeb.Pages.Categories
 
         public async Task<IActionResult> OnPost()
         {
-            await _db.Categories.AddAsync(Category);
-            await _db.SaveChangesAsync();
-            return RedirectToPage("index");
+            if (ModelState.IsValid)
+            {
+                await _db.Categories.AddAsync(Category);
+                await _db.SaveChangesAsync();
+                return RedirectToPage("index");
+            }
+            return Page();
         }
     }
 }
