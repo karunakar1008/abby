@@ -5,11 +5,13 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbbyWeb", "AbbyWeb\AbbyWeb.csproj", "{1BD9A399-CCF6-41EA-8A47-9BE974DE0AD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abby.Models", "Abby.Models\Abby.Models.csproj", "{B7FF15ED-2906-47D5-836D-953E6F7490BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abby.Models", "Abby.Models\Abby.Models.csproj", "{B7FF15ED-2906-47D5-836D-953E6F7490BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abby.DataAccess", "Abby.DataAccess\Abby.DataAccess.csproj", "{EF8CF879-4AD7-4D47-A073-0E5B92A55E41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abby.DataAccess", "Abby.DataAccess\Abby.DataAccess.csproj", "{EF8CF879-4AD7-4D47-A073-0E5B92A55E41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abby.Utility", "Abby.Utility\Abby.Utility.csproj", "{7A7442B1-6163-4443-B0BC-3B4EDE8FFE63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abby.Utility", "Abby.Utility\Abby.Utility.csproj", "{7A7442B1-6163-4443-B0BC-3B4EDE8FFE63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abby.DataAccess.Tests", "Abby.DataAccess.Tests\Abby.DataAccess.Tests.csproj", "{FCEB4256-E737-40DB-BD23-981B60F1DA16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{7A7442B1-6163-4443-B0BC-3B4EDE8FFE63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A7442B1-6163-4443-B0BC-3B4EDE8FFE63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A7442B1-6163-4443-B0BC-3B4EDE8FFE63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCEB4256-E737-40DB-BD23-981B60F1DA16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCEB4256-E737-40DB-BD23-981B60F1DA16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCEB4256-E737-40DB-BD23-981B60F1DA16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCEB4256-E737-40DB-BD23-981B60F1DA16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
