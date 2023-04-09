@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
 
-namespace AbbyWeb.Model
+namespace Abby.Models
 {
     public class Category
     {

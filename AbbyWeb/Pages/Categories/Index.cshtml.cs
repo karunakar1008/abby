@@ -1,5 +1,5 @@
-using AbbyWeb.Data;
-using AbbyWeb.Model;
+using Abby.DataAccess;
+using Abby.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace AbbyWeb.Pages.Categories
