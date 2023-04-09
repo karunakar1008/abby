@@ -7,10 +7,10 @@ namespace AbbyWeb.Pages.Categories
 {
     public class CreateModel : PageModel
     {
-        private readonly ICategoryRepository _db;
-        public CreateModel(ICategoryRepository db)
+        private readonly IUnitOfWork _unitOfWork;
+        public CreateModel(IUnitOfWork unitOfWork)
         {
-            _db = db;
+            _unitOfWork = unitOfWork;
         }
         [BindProperty]
         public Category Category { get; set; }
@@ -26,8 +26,8 @@ namespace AbbyWeb.Pages.Categories
             }
             if (ModelState.IsValid)
             {
-                _db.Add(Category);
-                _db.Save();
+                _unitOfWork.CategoryRepository.Add(Category);
+                _unitOfWork.CategoryRepository.Save();
                 TempData["success"] = "Category created successfully!";
                 return RedirectToPage("index");
             }

@@ -1,4 +1,3 @@
-using Abby.DataAccess;
 using Abby.DataAccess.Repository.IRepository;
 using Abby.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -8,27 +7,27 @@ namespace AbbyWeb.Pages.Categories
 {
     public class DeleteModel : PageModel
     {
-        private readonly ICategoryRepository _db;
-        public DeleteModel(ICategoryRepository db)
+        private readonly IUnitOfWork _unitOfWork;
+        public DeleteModel(IUnitOfWork unitOfWork)
         {
-            _db = db;
+            _unitOfWork = unitOfWork;
         }
         [BindProperty]
         public Category Category { get; set; }
         public void OnGet(int id)
         {
-            Category = _db.GetFirstOrDefault(c => c.Id == id);
+            Category = _unitOfWork.CategoryRepository.GetFirstOrDefault(c => c.Id == id);
         }
 
         public IActionResult OnPost()
         {
             if (ModelState.IsValid)
             {
-                var categoryFromDb = _db.GetFirstOrDefault(c => c.Id == Category.Id);
+                var categoryFromDb = _unitOfWork.CategoryRepository.GetFirstOrDefault(c => c.Id == Category.Id);
                 if (categoryFromDb != null)
                 {
-                    _db.Remove(categoryFromDb);
-                    _db.Save();
+                    _unitOfWork.CategoryRepository.Remove(categoryFromDb);
+                    _unitOfWork.CategoryRepository.Save();
                     TempData["success"] = "Category deleted successfully!";
                 }
                 return RedirectToPage("index");

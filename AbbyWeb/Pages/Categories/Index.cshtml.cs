@@ -7,16 +7,16 @@ namespace AbbyWeb.Pages.Categories
 {
     public class IndexModel : PageModel
     {
-        private readonly ICategoryRepository _db;
-        public IndexModel(ICategoryRepository db)
+        private readonly IUnitOfWork _unitOfWork;
+        public IndexModel(IUnitOfWork unitOfWork)
         {
-            _db = db;
+            _unitOfWork = unitOfWork;
         }
         public IEnumerable<Category> Categories { get; set; }
 
         public void OnGet()
         {
-            Categories = _db.GetAll();
+            Categories = _unitOfWork.CategoryRepository.GetAll();
         }
     }
 }
