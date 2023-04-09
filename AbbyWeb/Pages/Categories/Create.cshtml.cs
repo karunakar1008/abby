@@ -1,4 +1,4 @@
-using Abby.DataAccess;
+using Abby.DataAccess.Repository.IRepository;
 using Abby.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -7,8 +7,8 @@ namespace AbbyWeb.Pages.Categories
 {
     public class CreateModel : PageModel
     {
-        private readonly ApplicationDbContext _db;
-        public CreateModel(ApplicationDbContext db)
+        private readonly ICategoryRepository _db;
+        public CreateModel(ICategoryRepository db)
         {
             _db = db;
         }
@@ -18,7 +18,7 @@ namespace AbbyWeb.Pages.Categories
         {
         }
 
-        public async Task<IActionResult> OnPost()
+        public IActionResult OnPost()
         {
             if (Category.Name == Category.DisplayOrder.ToString())
             {
@@ -26,8 +26,8 @@ namespace AbbyWeb.Pages.Categories
             }
             if (ModelState.IsValid)
             {
-                await _db.Categories.AddAsync(Category);
-                await _db.SaveChangesAsync();
+                _db.Add(Category);
+                _db.Save();
                 TempData["success"] = "Category created successfully!";
                 return RedirectToPage("index");
             }
